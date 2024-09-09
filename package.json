@@ -7,7 +7,10 @@
     "build:client": "cross-env NODE_ENV=production webpack --config webpack.client.config.js",
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js",
     "build": "npm run build:client && npm run build:server",
-    "start": "cross-env NODE_ENV=production node dist/server/server.js"
+    "start": "cross-env NODE_ENV=production node dist/server/server.js",
+    "dev:client": "webpack serve --config webpack.client.config.js --mode development --hot --open",
+    "dev:server": "cross-env NODE_ENV=development nodemon --watch src --ext ts,tsx --exec ts-node server.tsx",
+    "dev": "npm run dev:client & npm run dev:server"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +32,7 @@
     "css-minimizer-webpack-plugin": "^7.0.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.1",
+    "nodemon": "^3.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "serve": "^14.2.3",

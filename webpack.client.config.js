@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist/static"), // Ensure client-side assets are in the right place
     filename: isDevelopment ? "[name].js" : "ClientIndex.[contenthash].js", // Proper hash for production
-    publicPath: "/static/", // Ensure the public path is set to /static
+    publicPath: isDevelopment ? "/" : "/static", // Ensure the public path is set to /static
   },
 
   devtool: isDevelopment ? "source-map" : false,
